@@ -1,0 +1,59 @@
+/*allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
+*/
+
+// android/build.gradle (top-level)
+
+
+
+buildscript {
+    ext.kotlin_version = '1.8.22' // updated kotlin version compatible with AGP 8.2.x
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.4.2'
+        // NOTE: If you use other plugins (e.g., navigation-safe-args), add them here.
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Preserve output directories outside the module to speed up multi-module builds (optional)
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+// Register clean task
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
