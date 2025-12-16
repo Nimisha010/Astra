@@ -28,4 +28,6 @@ flutter:
 
   assets:
     - assets/astra_logo.jpg
+    - assets/madeastralogo.png
     - assets/google_logo.png
+    - assets/astralogo.png

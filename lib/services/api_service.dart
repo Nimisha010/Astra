@@ -8,7 +8,8 @@ class ApiService {
   // For iOS simulator use 127.0.0.1. For a real device, use your PC's LAN IP.
   static const String _baseUrl = String.fromEnvironment('ASTRA_API_URL',
       defaultValue:
-          'http://192.168.1.8:5000'); // use 10.0.2.2 for Android emulator
+          //  'http://192.168.1.2:5000'); // use 10.0.2.2 for Android emulator
+          'http://10.242.43.98:5000');
 
   /// Sends `text` to /predict and returns decoded JSON map.
   /// Throws an exception on network error or non-200 response.

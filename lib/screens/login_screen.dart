@@ -887,7 +887,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: height * 0.15,
                   alignment: Alignment.centerLeft,
                   child: Image.asset(
-                    'assets/astra_logo.png',
+                    'assets/madeastralogo.png',
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(

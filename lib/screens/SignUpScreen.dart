@@ -430,8 +430,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: height * 0.15,
                   width: height * 0.15,
                   alignment: Alignment.centerLeft,
-                  child:
-                      Image.asset('assets/astra_logo.jpg', fit: BoxFit.contain),
+                  child: Image.asset('assets/madeastralogo.png',
+                      fit: BoxFit.contain),
                 ),
 
                 const SizedBox(height: 10),
