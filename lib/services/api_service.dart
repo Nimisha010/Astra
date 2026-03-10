@@ -9,7 +9,37 @@ class ApiService {
   static const String _baseUrl = String.fromEnvironment('ASTRA_API_URL',
       defaultValue:
           //  'http://192.168.1.2:5000'); // use 10.0.2.2 for Android emulator
-          'http://10.242.43.98:5000');
+          //'http://10.242.43.98:5000');
+          'http://10.84.71.98:5000');
+
+  static Future<Map<String, dynamic>> analyzeImage(File imageFile) async {
+    final url = Uri.parse('$_baseUrl/predict_image');
+
+    try {
+      var request = http.MultipartRequest('POST', url);
+
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          'file',
+          imageFile.path,
+        ),
+      );
+
+      var response = await request.send().timeout(const Duration(seconds: 30));
+
+      if (response.statusCode != 200) {
+        final errorText = await response.stream.bytesToString();
+        throw Exception("Server error: $errorText");
+      }
+
+      final responseData = await response.stream.bytesToString();
+      return jsonDecode(responseData);
+    } on SocketException {
+      throw Exception('No network connection.');
+    } on http.ClientException catch (e) {
+      throw Exception('HTTP client error: ${e.message}');
+    }
+  }
 
   /// Sends `text` to /predict and returns decoded JSON map.
   /// Throws an exception on network error or non-200 response.
