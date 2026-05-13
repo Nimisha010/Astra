@@ -10,7 +10,9 @@ class ApiService {
       defaultValue:
           //  'http://192.168.1.2:5000'); // use 10.0.2.2 for Android emulator
           //'http://10.242.43.98:5000');
-          'http://10.84.71.98:5000');
+          'http://10.165.231.98:5000');
+  // 'http://10.227.32.98:5000');
+  //'http://192.168.43.98:5000');
 
   static Future<Map<String, dynamic>> analyzeImage(File imageFile) async {
     final url = Uri.parse('$_baseUrl/predict_image');

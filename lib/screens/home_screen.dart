@@ -820,7 +820,7 @@ class _HomeScreenState extends State<HomeScreen> {
         FirebaseFirestore.instance
             .collection('users')
             .doc(uid)
-            .collection('morphing_history')
+            .collection('morph_history')
             .get(),
         FirebaseFirestore.instance
             .collection('users')
